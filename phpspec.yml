@@ -1,0 +1,13 @@
+formatter.name: pretty
+
+# suites:
+
+#     uikit_suite :
+
+#         namespace : Almeida
+
+#         src_path : src
+
+#         spec_path : spec
+
+#         spec_prefix : spec

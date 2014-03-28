@@ -1,17 +1,22 @@
 ## [UIKit](/) \ Tables
 
-"Tables display collections of data grouped into rows" - [semantic-ui](http://semantic-ui.com/collections/table.html)
 
-### @todo
-
-	These docs are a WIP. Please feel free to fork and add your own examples.
+These docs are a WIP.
 
 
-### A basic table
-
- ``UIKit::table($data, $options=array());``
+### A standard table
 
 ```
+	
+	// Build the table
+	$table = UIKit::table($rows);
+	
+	// Render the table
+	echo $table->render();
+
+```
+
+``` 
 	<!--OUTPUT -->
 
 	<div class="">
@@ -45,16 +50,17 @@
 
 ### A table with actions
 
-```
+``` 
 
 	$data = array();
 	foreach($rows as $user) {
 
-
+		// Actions shiz
 		$actions = array(
     	    'View' => array('admin.orders.view', array('id' => $user['id'])),
 	        'Edit' => array('admin.orders.edit', array('id' => $user['id'])),
 	    );
+	    
 	    $actions = UIKit::actions($actions);
 
     	$created = Carbon::instance(new DateTime($user['created']));
@@ -68,7 +74,13 @@
 	    );
 	}
 
-	UIKit::table($data, $options=array());
+	// Build the table
+	$table = UIKit::table($rows);
+	
+	// Render the table
+	echo $table->render();
+
+	
 ```
 
 ```
@@ -113,7 +125,7 @@
 
 ### A table with actions, using a button group variant
 
-As above but
+As above but use a button group.
 
 ```
 	//$actions = UIKit::actions($actions);
@@ -158,12 +170,37 @@ As above but
 
 ```
 
+### A table with actions, using a button group for actions with pagination
+
+```
+	// Build the table
+	$table = UIKit::table($rows, $options=array());
+	
+	// Extract pagination from the collection
+	// Note : Currently its expecting laravel, need to detect / remove dependency
+	$pagination = $table->pagination($data);
+	
+	// Output	
+	
+		// Top pagination
+		echo $pagination;
+	
+		// Table	
+		echo $table->render();
+		
+		// Bottom pagination
+		echo $pagination;
+
+
+```
+
 
 
 ##### Sample data
 
-<pre><code>
-// From ORM, etc
+```
+// From ORM, database etc.
+// Use a presenter to do nice date formats etc
 
 use Carbon\Carbon;
 
@@ -195,4 +232,4 @@ foreach($rows as $user) {
     );
 }
 
-</code></pre>
+```

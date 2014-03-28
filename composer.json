@@ -2,7 +2,7 @@
     "name"        : "almeida/ui-kit",
     "description" : "A frontend generator that encourages the maintenance of a pattern libary.",
     "type"        : "library",
-    "homepage"    : "https://github.com/xxxx",
+    "homepage"    : "https://github.com/arnold-almeida/UIKit",
     "keywords"    : ["ui-kit", "frontend", "generators"],
     "license"     : "MIT",
     "authors": [
@@ -13,16 +13,11 @@
             "role"     : "Developer"
         }
     ],
-    "support" : {
-        "email": "arnold@floatingpoints.com.au",
-        "issues" : "https://github.com/xxx/issues",
-        "source" : "https://github.com/xx"
-    },
     "require-dev": {
         "phpspec/phpspec": "2.0.*@dev"
     },
     "require": {
-        "php": ">=5.3.0",
+        "php": ">=5.4.0",
         "league/di": ">=1.1",
         "illuminate/html": "4.1.*",
         "illuminate/routing": "4.1.*"

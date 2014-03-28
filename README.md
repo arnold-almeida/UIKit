@@ -50,6 +50,7 @@ The following versions of PHP are supported by this version.
 
 ## Todo
 
+- [x] Public release
 - [ ] Work out a nice way to manage configuration
 - [ ] Write phpspec's for all implementations
 - [ ] Docs - How to use with examples
@@ -93,12 +94,8 @@ For more information on SemVer, please visit <http://semver.org/>.
 
 ## Contributing
 
-Please see [CONTRIBUTING](https://github.com/thephpleague/fractal/blob/master/CONTRIBUTING.md) for details.
+Please see [CONTRIBUTING](https://github.com/arnold-almeida/UIKit/blob/master/CONTRIBUTING.md) for details.
 
 ## Copyright and license
 
-Code and documentation copyright 2014 Floating Points Group Pty Ltd.
-
 Code released under [the MIT license](LICENSE).
-
-Docs released under [Creative Commons](docs/LICENSE).

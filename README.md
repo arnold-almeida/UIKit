@@ -1,11 +1,13 @@
 # UIKit
 
 @todo - Build status
-@todo - Total downloads
-[![License](https://poser.pugx.org/league/fractal/license.png)](https://packagist.org/packages/league/fractal)
-
+[![License](https://poser.pugx.org/almeida/ui-kit/license.png)](https://packagist.org/packages/almeida/ui-kit)
 
 UIKit is a php toolset to encourage the maintenence of a "Pattern Libary".
+
+This is an alpha alpha release, im just making it public so i am forced to maintain it.
+
+Suggestions welcome.
 
 ## Goals
 
@@ -14,39 +16,6 @@ UIKit is a php toolset to encourage the maintenence of a "Pattern Libary".
 * Best practices approach to markup
 * Allow users to switch between presentation frameworks easily (Foundation/Bootstrap/SemanticUI)
 * Allow users to extend an implementation and maintain their own internal pattern libary
-
-
-## Standards
-
-This package aims to be compliant with [PSR-1][], [PSR-2][] and [PSR-4][]. If you
-notice compliance oversights, please send a patch via pull request.
-
-[PSR-1]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md
-[PSR-2]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
-[PSR-4]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md
-
-## Install
-
-Via Composer
-
-``` json
-{
-    "require": {
-        "almeida/ui-kit": "*"
-    }
-}
-```
-
- - Install via composer
- - @todo
- - Install an implementation via composer
-
-## Requirements
-
-The following versions of PHP are supported by this version.
-
-* PHP 5.3+
-
 
 ## Todo
 
@@ -63,6 +32,21 @@ The following versions of PHP are supported by this version.
 ``` bash
 $ phpspec run
 ```
+
+## Standards
+
+This package aims to be compliant with [PSR-1][], [PSR-2][] and [PSR-4][]. If you
+notice compliance oversights, please send a patch via pull request.
+
+[PSR-1]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-1-basic-coding-standard.md
+[PSR-2]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-2-coding-style-guide.md
+[PSR-4]: https://github.com/php-fig/fig-standards/blob/master/accepted/PSR-4-autoloader.md
+
+## Requirements
+
+The following versions of PHP are supported by this version.
+
+* PHP 5.4+
 
 ## Bibliography
 

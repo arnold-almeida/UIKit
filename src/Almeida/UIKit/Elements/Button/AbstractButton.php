@@ -19,6 +19,17 @@ use Almeida\UIKit\Elements\Button\ButtonInterface;
  */
 abstract class AbstractButton extends Element implements ButtonInterface
 {
+    public $variations = array(
+        'social' => array(),
+        'sizes' => array(),
+        'emphasis' => array(),
+        'colors' => array(),
+        'toggle' => array(),
+        'feedback' => array(),
+        'fluid' => array(),
+        'circular' => array(),
+        'attached' => array(), // vertically, horizontally
+    );
 
     // standard button
     public function standard($label, $url, $options=array())

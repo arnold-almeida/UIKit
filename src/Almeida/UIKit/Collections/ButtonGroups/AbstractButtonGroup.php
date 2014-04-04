@@ -20,6 +20,19 @@ use Illuminate\Support\Facades\URL;
 
 abstract class AbstractButtonGroup extends Collection implements ButtonGroupInterface
 {
+    /**
+     * ButtonGroup variations
+     * @var array
+     */
+    public $variations = array(
+        'vertical' => false,
+        'icons' => false,
+        'labeled-icon' => false,
+        'fluid' => false,
+        'colors' => '',
+        'default' => false,
+        'size' => '',
+    );
 
     public function __construct($options=array(), ActionsInterface $action)
     {
@@ -29,8 +42,7 @@ abstract class AbstractButtonGroup extends Collection implements ButtonGroupInte
 
     public function build($actions=array(), $type, $options=array())
     {
-
-        return $this->{$type}($actions);
+        return $this->{$type}($actions, $options);
     }
 
     public function generateUrl($url)

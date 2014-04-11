@@ -14,70 +14,78 @@ use Almeida\UIKit\Lib\Manager;
 class UIKit extends Manager
 {
 
-    /**
-     * TableInterface implemented
-     */
-    public $Table = null;
+	/**
+	 * TableInterface implemented
+	 */
+	public $Table = null;
 
-    /**
-     * ActionsInterface implemented
-     */
-    public $Actions = null;
+	/**
+	 * ActionsInterface implemented
+	 */
+	public $Actions = null;
 
-    /**
-     * ButtonInterface implemented
-     */
-    public $Button = null;
+	/**
+	 * ButtonInterface implemented
+	 */
+	public $Button = null;
 
-    /**
-     * ButtonGroup implemented
-     */
-    public $ButtonGroup = null;
+	/**
+	 * ButtonGroup implemented
+	 */
+	public $ButtonGroup = null;
 
-    /**
-     * TypographyInterface implemented
-     */
-    public $Typography = null;
+	/**
+	 * TypographyInterface implemented
+	 */
+	public $Typography = null;
 
 
-    public function header($str, $options=array())
-    {
-        return $this->Typography->header('h1', $str, $options);
-    }
+	public function header($str, $options=array())
+	{
+		return $this->Typography->header('h1', $str, $options);
+	}
 
-    /**
-     * UIKit::table()
-     *
-     * @param  Array  $data    Key value pairs
-     * @param  array  $options [description]
-     * @return [type]          [description]
-     */
-    public function table($data, $options=array())
-    {
-        return $this->Table->make($data, $options);
-    }
+	/**
+	 * UIKit::table()
+	 *
+	 * @param  Array  $data    Key value pairs
+	 * @param  array  $options [description]
+	 * @return [type]          [description]
+	 */
+	public function table($data, $options=array())
+	{
+		return $this->Table->make($data, $options);
+	}
 
-    /**
-     * UIKit::actions()
-     * @return [type] [description]
-     */
-    public function actions($actions, $options=array())
-    {
-        return $this->Actions->make($actions, $options);
-    }
+	/**
+	 * UIKit::actions()
+	 * @return [type] [description]
+	 */
+	public function actions($actions, $options=array())
+	{
+		return $this->Actions->make($actions, $options);
+	}
 
-    /**
-     * UIKit::buttonGroup()
-     * @return [type] [description]
-     */
-    public function buttonGroup($actions, $type, $options=array())
-    {
-        return $this->ButtonGroup->build($actions, $type, $options);
-    }
+	/**
+	 * UIKit::buttonGroup()
+	 * @return [type] [description]
+	 */
+	public function buttonGroup($actions, $type, $options=array())
+	{
+		return $this->ButtonGroup->build($actions, $type, $options);
+	}
 
-    public function pagination()
-    {
-        // todo
-    }
+	/**
+	 * UIKit::link()
+	 */
+	public function link($label, $url, $options=array())
+	{
+		return $this->Link->hyperlink($label, $url, $options);
+	}
+
+	public function pagination()
+	{
+		// todo
+	}
 
 }

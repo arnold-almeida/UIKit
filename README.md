@@ -7,6 +7,11 @@ UIKit is a php toolset to encourage the maintenence of a "Pattern Libary".
 
 This is an alpha alpha release, im just making it public so i am forced to maintain it.
 
+Installing this package by itself probably wont work. Please install the laravel driver and see
+instructions for basic usage.
+
+https://github.com/arnold-almeida/UIKit-Laravel
+
 Suggestions welcome.
 
 ## Goals

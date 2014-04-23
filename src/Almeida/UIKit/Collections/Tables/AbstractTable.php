@@ -80,9 +80,12 @@ abstract class AbstractTable extends Collection implements TableInterface
 		$out  = [];
 
 
+		// @todo - Raise an exception instead ?
+		// Would make more send and could be handled more gracefully
+		//
 		// Have any records actually been passed through ?
 		if (empty($data)) {
-			return $this->hasNoData();
+			return $this->hasNoData($options);
 		}
 
 		// If a 'id' key has been specified use that as the table#id
@@ -181,9 +184,17 @@ abstract class AbstractTable extends Collection implements TableInterface
 	}
 
 
-	public function hasNoData()
+	/**
+	 * Render the a Feedback block
+	 *
+	 * Feedback::noData($options);
+	 *
+	 * @param  array   $options [description]
+	 * @return boolean          [description]
+	 */
+	public function hasNoData($options=array())
 	{
-		$this->output['table'] = $this->Feedback->noData();
+		$this->output['table'] = $this->Feedback->noData($options);
 
 		return $this;
 	}
@@ -266,7 +277,7 @@ abstract class AbstractTable extends Collection implements TableInterface
 	public function applyHeaderSort($label, $sortKey)
 	{
 		switch (UIKit::getEnvironment()) {
-			case '1laravel':
+			case 'laravel':
 					dd('laravel');
 				break;
 			default:

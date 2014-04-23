@@ -80,11 +80,10 @@ abstract class AbstractFeedback extends Collection implements FeedbackInterface
      */
     public function noData($options=array())
     {
-        $iconClass = (isset($options['icon-class'])) ? $options['icon-class'] : 'icon';
+    	$iconClass = (isset($options['icon-class'])) ? $options['icon-class'] : 'icon';
         $icon      = (isset($options['model'])) ? $options['model'] : 'default';
-        $message   = (isset($options['noData']['message'])) ? $options['noData']['message'] : 'Default no data message.';
-
-        $secondary = '';
+        $title     = (isset($options['behaviours']['no-data']['title'])) ? $options['behaviours']['no-data']['title'] : 'Info';
+        $message   = (isset($options['behaviours']['no-data']['message'])) ? $options['behaviours']['no-data']['message'] : 'Set options.behaviours.no-data.message';
 
         // Linked label
         if (isset($options['noData']['subtext']) && (!empty($options['noData']['subtext']['url']))) {
@@ -96,12 +95,14 @@ abstract class AbstractFeedback extends Collection implements FeedbackInterface
             $secondary = $options['noData']['subtext']['label'];
         }
 
-        return '<div class="no-data">
-                 <div class="{$iconClass} {$icon}">
-                 </div>
-                 <h2>'.$message.'</h2>
-                 <p>'.$secondary.'</p>
-               </div>';
+        return '<div class="no-data panel panel-info">
+            <div class="panel-heading">
+              <h3 class="panel-title"><strong>'.$title.'</strong></h3>
+            </div>
+            <div class="panel-body">
+              '.$message.'
+            </div>
+          </div>';
     }
 
     public function makeLink($label, $url) {

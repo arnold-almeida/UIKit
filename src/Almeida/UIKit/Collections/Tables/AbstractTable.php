@@ -298,4 +298,12 @@ abstract class AbstractTable extends Collection implements TableInterface
 		}
 	}
 
+	/**
+	 * Just render the table
+	 */
+	public function __toString()
+	{
+		return $this->render();
+	}
+
 }

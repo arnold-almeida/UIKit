@@ -7,16 +7,12 @@ These docs are a WIP.
 ### A standard table
 
 ```
-	
-	// Build the table
-	$table = UIKit::table($rows);
-	
-	// Render the table
-	echo $table->render();
+	// Render a table
+	{{ UIKit::table($rows) }}
 
 ```
 
-``` 
+```
 	<!--OUTPUT -->
 
 	<div class="">
@@ -50,7 +46,7 @@ These docs are a WIP.
 
 ### A table with actions
 
-``` 
+```
 
 	$data = array();
 	foreach($rows as $user) {
@@ -60,7 +56,7 @@ These docs are a WIP.
     	    'View' => array('admin.orders.view', array('id' => $user['id'])),
 	        'Edit' => array('admin.orders.edit', array('id' => $user['id'])),
 	    );
-	    
+
 	    $actions = UIKit::actions($actions);
 
     	$created = Carbon::instance(new DateTime($user['created']));
@@ -74,13 +70,10 @@ These docs are a WIP.
 	    );
 	}
 
-	// Build the table
-	$table = UIKit::table($rows);
-	
-	// Render the table
-	echo $table->render();
+	// Render a table
+	{{ UIKit::table($data) }}
 
-	
+
 ```
 
 ```
@@ -173,24 +166,14 @@ As above but use a button group.
 ### A table with actions, using a button group for actions with pagination
 
 ```
-	// Build the table
-	$table = UIKit::table($rows, $options=array());
-	
-	// Extract pagination from the collection
-	// Note : Currently its expecting laravel, need to detect / remove dependency
-	$pagination = $table->pagination($data);
-	
-	// Output	
-	
-		// Top pagination
-		echo $pagination;
-	
-		// Table	
-		echo $table->render();
-		
-		// Bottom pagination
-		echo $pagination;
+	// Top pagination
+	{{ UIKit::pagination($collection, $options) }}
 
+	// Table
+	{{ UIKit::table($data, $options) }}
+
+	// Bottom pagination
+	{{ UIKit::pagination($collection, $options) }}
 
 ```
 

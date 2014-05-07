@@ -13,7 +13,7 @@ use League\Di\Container;
 
 abstract class Manager
 {
-    private $defaultGenerators = array(
+    protected $defaultGenerators = array(
         'Collection' => array(
             'Feedback'     => 'Almeida\UIKit\Collections\Feedback\Generators\Html5Feedback',
             'Table'        => 'Almeida\UIKit\Collections\Tables\Generators\Html5Table',
@@ -22,16 +22,22 @@ abstract class Manager
 
         ),
         'Elements' => array(
-            'Button' => 'Almeida\UIKit\Elements\Button\Generators\Html5Button',
-            'Link' => 'Almeida\UIKit\Elements\Link\Generators\Html5Link',
-            'Typography' => 'Almeida\UIKit\Elements\Typography\Generators\Html5Typography'
+			'Button'     => 'Almeida\UIKit\Elements\Button\Generators\Html5Button',
+			'Link'       => 'Almeida\UIKit\Elements\Link\Generators\Html5Link',
+			'Typography' => 'Almeida\UIKit\Elements\Typography\Generators\Html5Typography'
         )
     );
+
+    // ???
+    protected $options = [
+    	'framework' => [
+    		'Paginator' => 'Illuminate\Pagination\Paginator'
+    	]
+    ];
 
 
     public function __construct($generators=array(), $options=array())
     {
-
         $this->UIKit   = new Container();
 
         $this->generators = array_merge($this->defaultGenerators, $generators);
@@ -59,6 +65,13 @@ abstract class Manager
         // Resolve the button_groups UIKit we wish to implement
         $this->UIKit->bind($this->generators['Collection']['ButtonGroups'])->addArgs(array($options, $this->Actions));
         $this->ButtonGroup = $this->UIKit->resolve($this->generators['Collection']['ButtonGroups']);
+
+        // Resolve Framework tools
+        //$this->options = array_merge($this->options, $options);
+
+        // Paginator
+        //$this->Paginator = $this->options['framework']['Paginator'];
+
     }
 
     public static function detectEnvironment()

@@ -83,9 +83,31 @@ class UIKit extends Manager
 		return $this->Link->hyperlink($label, $url, $options);
 	}
 
-	public function pagination()
+	/**
+	 * [pagination description]
+	 * @return [type] [description]
+	 */
+	public function pagination($paginator, $options=array())
 	{
-		// todo
+		switch (UIKit::getEnvironment()) {
+			case 'laravel4':
+					return $this->paginateLaravelCollection($paginator, $options);
+				break;
+			default:
+				throw new Exception("UIKit can not detect the framework to autopaginate");
+
+				break;
+		}
+	}
+
+	// @todo - should be moved to an adapter in Almeida\UIKitLaravel\Paginator
+	protected function paginateLaravelCollection(\Illuminate\Pagination\Paginator $paginator, $options)
+	{
+		if (isset($options['query']) && !empty($options['query'])) {
+			$paginator->appends($options['query']);
+		}
+
+		return $paginator->links();
 	}
 
 }

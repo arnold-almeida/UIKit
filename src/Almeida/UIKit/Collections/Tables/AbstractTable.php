@@ -25,8 +25,6 @@ abstract class AbstractTable extends Collection implements TableInterface
 
 	public $defaults = array(
 		'showHeaders'     => true,      // Show <th> ?
-		'paginationTop'   => true,      // Prints pagination above table
-		'paginationBot'   => true,      // Prints pagination below table
 		'primaryKey'      => 'id',
 		'hiddenFields'    => array('id','parent_id','depth','child_rows'),
 		'wrapperClass'    => '',
@@ -36,7 +34,6 @@ abstract class AbstractTable extends Collection implements TableInterface
 		'rowActionsClass' => 'row-actions',
 		'fieldClass'      => '',
 		'headerClass'     => '',
-		'paginate'        => true,      // Auto paginate
 		'query'           => array(),   // $_GET key, value pairs
 	);
 
@@ -78,7 +75,6 @@ abstract class AbstractTable extends Collection implements TableInterface
 
 		// Capture output
 		$out  = [];
-
 
 		// @todo - Raise an exception instead ?
 		// Would make more send and could be handled more gracefully
@@ -172,12 +168,6 @@ abstract class AbstractTable extends Collection implements TableInterface
 		$out[] = "\t</table>";
 		$out[] = "</div>";
 
-		//pagination on the bottom
-		if (!empty($data) && ($options['paginationBot'] == true)) {
-			$out[] = $this->printPagination($data, $options);
-		}
-
-
 		$this->output['table'] = implode(PHP_EOL, $out);
 
 		return $this;
@@ -197,48 +187,6 @@ abstract class AbstractTable extends Collection implements TableInterface
 		$this->output['table'] = $this->Feedback->noData($options);
 
 		return $this;
-	}
-
-	/**
-	 * Detect the environment and if so Paginate accorgingly
-	 *
-	 * @return [type] [description]
-	 */
-	public function pagination($paginator, $options=array())
-	{
-		switch (UIKit::getEnvironment()) {
-			case 'laravel4':
-					return $this->paginateLaravelCollection($paginator, $options);
-				break;
-			default:
-				throw new Exception("UIKit can not detect the framework to autopaginate");
-
-				break;
-		}
-	}
-
-
-	protected function paginateLaravelCollection(\Illuminate\Pagination\Paginator $paginator, $options)
-	{
-		if (isset($options['query']) && !empty($options['query'])) {
-			$paginator->appends($options['query']);
-		}
-
-		return $paginator->links();
-	}
-
-
-	/**
-	 * [printPagination description]
-	 * @param  [type] $data      [description]
-	 * @param  [type] $paginator [description]
-	 * @return [type] [description]
-	 */
-	protected function printPagination($data, $paginator = null)
-	{
-		if (!empty($this->options['paginator']) && empty($paginator)) {
-			return '@todo - Pagination - '.$this->options['paginator'];
-		}
 	}
 
 	/**

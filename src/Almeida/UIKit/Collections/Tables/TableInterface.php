@@ -35,10 +35,5 @@ interface TableInterface {
      */
     public function hasNoData();
 
-    /**
-     * Print pagination based the collection given to us
-     */
-    public function pagination($collection);
-
 
 }

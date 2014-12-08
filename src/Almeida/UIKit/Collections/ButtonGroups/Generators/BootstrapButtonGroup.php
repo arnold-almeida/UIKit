@@ -20,6 +20,10 @@ class BootstrapButtonGroup extends AbstractButtonGroup
 
     public function splitButtonDropdown($actions=array(), $options=array())
     {
+      if (empty($actions)) {
+          return null;
+      }
+
       $actions = $this->Actions->map($actions);
 
       $btnType = $this->getTypeVariation($options);
@@ -62,6 +66,7 @@ class BootstrapButtonGroup extends AbstractButtonGroup
             return 'btn-'.$options['variation']['type'];
         }
       }
+
       return 'btn-default';
     }
 }

@@ -70,6 +70,10 @@ abstract class AbstractActions extends Collection implements ActionsInterface
      */
     public static function map($actions=array(), $options=array())
     {
+        if (empty($actions)) {
+            return null;
+        }
+
         $out   = array();
         $count = 0;
         $len   = count($actions);

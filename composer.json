@@ -19,8 +19,8 @@
     "require": {
         "php": ">=5.4.0",
         "league/di": ">=1.1",
-        "illuminate/html": "4.1.*",
-        "illuminate/routing": "4.1.*"
+        "illuminate/html": "4.2.*",
+        "illuminate/routing": "4.2.*"
     },
     "config": {
         "bin-dir": "bin"
